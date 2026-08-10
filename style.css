@@ -37,3 +37,9 @@ button {
 button:hover {
   background-color: #1d4ed8;
 }
+
+#statusMessage {
+  margin-top: 12px;
+  color: #0f766e;
+  font-weight: bold;
+}
