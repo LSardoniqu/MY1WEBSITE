@@ -5,7 +5,7 @@ const statusMessage = document.getElementById("statusMessage");
 button.addEventListener("click", function () {
   const pin = pinInput.value.trim();
 
-  if (/^\d{6}$/.test(pin)) {
+  if (/^\d+$/.test(pin)) {
     const kahootUrl = `https://kahoot.it/?pin=${pin}`;
     const newWindow = window.open(kahootUrl, "_blank", "noopener,noreferrer");
 
@@ -15,6 +15,6 @@ button.addEventListener("click", function () {
 
     statusMessage.textContent = `Opening Kahoot with code: ${pin}`;
   } else {
-    statusMessage.textContent = "Please enter a 6-digit PIN.";
+    statusMessage.textContent = "Please enter a numeric PIN.";
   }
 });
