@@ -6,8 +6,14 @@ button.addEventListener("click", function () {
   const pin = pinInput.value.trim();
 
   if (/^\d{6}$/.test(pin)) {
-    window.open(`https://kahoot.it/?pin=${pin}`, "_blank", "noopener,noreferrer");
-    statusMessage.textContent = `Opening Kahoot. Enter code: ${pin}`;
+    const kahootUrl = `https://kahoot.it/?pin=${pin}`;
+    const newWindow = window.open(kahootUrl, "_blank", "noopener,noreferrer");
+
+    if (!newWindow) {
+      window.location.href = kahootUrl;
+    }
+
+    statusMessage.textContent = `Opening Kahoot with code: ${pin}`;
   } else {
     statusMessage.textContent = "Please enter a 6-digit PIN.";
   }
